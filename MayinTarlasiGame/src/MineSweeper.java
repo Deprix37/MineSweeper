@@ -15,8 +15,7 @@ public class MineSweeper {
     boolean isGameOver = false;
 
     void launch() { // Kullanıcının oyunu yükleme aşamasında ilk karşılaştığı metot
-        this.row = row;
-        this.col = col;
+
         this.minePrice = (row * col) / 4;
 
         System.out.println("Mayın Tarlası Oyununa Hoş Geldiniz...");
@@ -57,8 +56,7 @@ public class MineSweeper {
     }
 
     void run() {  //oyunu oynattığım fonksiyonum. Kullanıcıyla devamlı etkileşime girip oyundan ilerlemesini sağladığım bölüm
-        this.userSelectRow = userSelectRow;
-        this.userSelectCol = userSelectCol;
+
         renderMatrix(map);
         // döngüm oyun bitmedikce isgameover boolen değerim false döndükçe aşağıda ki kod bloklarım çalışır
         do {
@@ -73,7 +71,7 @@ public class MineSweeper {
                 continue;
             }
 
-            if (mapWithMine[userSelectRow][userSelectCol] != "-" && mapWithMine[userSelectRow][userSelectCol] != "*") {
+            if (!mapWithMine[userSelectRow][userSelectCol].equals("-") && !mapWithMine[userSelectRow][userSelectCol].equals("*")) {
                 System.out.println("Daha önce girdiğiniz lokasyonu tercih edemezsiniz.");
                 isGameOver = false;
             }
